@@ -1,0 +1,214 @@
+/* ─── Reset & Base ───────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #111111;
+  --bg-nav: #1a1a1a;
+  --bg-section: #181818;
+  --bg-section-hover: #1f1f1f;
+  --accent: #c9a84c;
+  --accent-dim: #7a6028;
+  --text: #e2e2e2;
+  --text-muted: #888;
+  --border: #2a2a2a;
+  --radius: 8px;
+  --nav-height: 130px; /* header (60px) + nav bar (70px) */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-nav);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 20px 8px;
+}
+
+.header-title h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.header-title .concert-info {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: 1px;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Nav bar ─────────────────────────────────────────────────────────────── */
+
+#song-nav {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 8px 16px 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-dim) transparent;
+}
+
+#song-nav::-webkit-scrollbar {
+  height: 4px;
+}
+#song-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+#song-nav::-webkit-scrollbar-thumb {
+  background: var(--accent-dim);
+  border-radius: 4px;
+}
+
+.nav-btn {
+  flex-shrink: 0;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.nav-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.nav-btn.active {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.35);
+}
+
+/* ─── Song Sections ──────────────────────────────────────────────────────── */
+
+#song-sections {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 32px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.song-section {
+  scroll-margin-top: calc(var(--nav-height) + 16px);
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.song-section:target,
+.song-section:hover {
+  border-color: var(--accent-dim);
+}
+
+/* ─── Song heading ───────────────────────────────────────────────────────── */
+
+.song-heading {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #1f1f1f 0%, #1a1a1a 100%);
+}
+
+.song-heading h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.01em;
+}
+
+.artist {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ─── Lyrics ─────────────────────────────────────────────────────────────── */
+
+.lyrics {
+  padding: 20px 24px 24px;
+  white-space: pre-wrap;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+  tab-size: 4;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .song-heading {
+    padding: 16px 16px 12px;
+  }
+
+  .song-heading h2 {
+    font-size: 1.15rem;
+  }
+
+  .lyrics {
+    padding: 16px;
+    font-size: 0.95rem;
+  }
+
+  #song-sections {
+    gap: 32px;
+  }
+}
