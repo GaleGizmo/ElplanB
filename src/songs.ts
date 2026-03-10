@@ -1800,9 +1800,9 @@ Será mejor que lo pienses, cariño, nena
       gl: `Camiñamos polas rúas de noite
 Imos onde as aguias ousan
 Captan cada movemento
-Captan a cada perdedor
+Ven a cada perdedor
 Con ollos e rostros gastados
-Ti cres de verdade que lles importa?
+Cres que lles importa algo?
 
 Eu non son ningún maldito fillo de puta
 Mellor que o penses ben, nena
@@ -1827,7 +1827,7 @@ e ver canto es quen de aguantar
 Ese alfinete de sombreiro na túa retina
 desnuda todo o teu pasado
 Con ollos e rostros gastados
-Ti cres de verdade que lles importa?
+Cres que lles importa algo?
 
 Imos onde se atreven as aguias
 Iremos onde se atreven as aguias
