@@ -160,6 +160,14 @@ header {
   padding: 20px 24px 16px;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(135deg, #1f1f1f 0%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.song-heading-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .song-heading h2 {
@@ -176,7 +184,53 @@ header {
   font-style: italic;
 }
 
+/* ─── Translation toggles ────────────────────────────────────────────────── */
+
+.translation-toggles {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.translation-btn {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+  white-space: nowrap;
+}
+
+.translation-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+.translation-btn.active {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
 /* ─── Lyrics ─────────────────────────────────────────────────────────────── */
+
+.lyrics-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.lyrics-wrapper.with-translation {
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
 
 .lyrics {
   padding: 20px 24px 24px;
@@ -192,15 +246,30 @@ header {
   tab-size: 4;
 }
 
+.translation-lyrics {
+  border-left: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 
 @media (max-width: 600px) {
   .song-heading {
     padding: 16px 16px 12px;
+    flex-wrap: wrap;
   }
 
   .song-heading h2 {
     font-size: 1.15rem;
+  }
+
+  .lyrics-wrapper.with-translation {
+    grid-template-columns: 1fr;
+  }
+
+  .translation-lyrics {
+    border-left: none;
+    border-top: 1px solid var(--border);
   }
 
   .lyrics {
